@@ -1,12 +1,12 @@
 html {
   background-color: #c7925f;
   background-blend-mode:overlay;
-  display:flex;
   align-items:center;
   justify-content:center;
   background-repeat:no-repeat;
   background-size:cover;
-  height:100%;
+  font-size:17px;
+  display:flex;
 }
 
 body {
@@ -46,7 +46,52 @@ body {
   color:white;
   margin-top:20px;
 }
+div.basic {
+  max-width:1200px;
+  padding:5px 20px;
+  border-radius:10px;
+  box-shadow:4px 4px 15px rgba(0, 0, 0, 0.2);
+  background-color:#fff;
+}
+div.main_field{
+  max-width:1200px;
+  padding:5px 20px;
+  margin:10px 0px;
+  border-radius:10px;
+  box-shadow:4px 4px 15px rgba(0, 0, 0, 0.2);
+  background-color:#fff;
+}
+textarea.code{
+  border-radius:10px;
+  margin-bottom:10px;
+  padding:10px 20px;
 
+}
+input.knopka{
+  border-radius:30px;
+  padding:10px 10px;
+  font-size:17px;
+  background-color: #153156;
+  border:none;
+  color:white;
+  margin-bottom:10px;
+}
+header.base{
+  padding:5px 20px;
+
+  background-color:#C7925FFF;
+  font-weight:bold;
+    border-radius:10px;
+  box-shadow:4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+div.knopka1{
+  border-radius:30px;
+  padding:10px 10px;
+  font-size:17px;
+  background-color: #ffffff;
+  border:none;
+  margin-bottom:10px;
+}
 @media (max-width: 576px) {
   .registration-cssave form {
     padding:50px 20px;
