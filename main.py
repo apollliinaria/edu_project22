@@ -39,6 +39,31 @@ def login():
     else:
         return render_template('login.html', title="Login")
 
+@app.route('/register', methods =['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        if 'username' not in session:
+            session['username'] = request.form['username']
+            username = session['username']
+            email = request.form['email']
+            role = request.form['role']
+            cursor.execute("SELECT * FROM users_table_1")
+            noun = 0
+            f = cursor.fetchone()
+            while f:
+                noun+=1
+                f = cursor.fetchone()
+            user_id = noun + 1
+            cursor.execute("INSERT OR REPLACE INTO users_table_1(user_id, username, role, email) VALUES (?, ?, ?, ?)", (user_id, username, role, email))
+            conn.commit()
+            f = cursor.execute("SELECT * FROM users_table_1")
+            for i in f:
+                print(i)
+            print()
+            return render_template('register.html', deta = 'Hello, ' + request.form['username'], role = session['role'], logInfo = 'Logout', title="Register")
+        else:
+            return render_template('register.html', deta = 'You are already in as ' + session['username'], role = session['role'], logInfo = 'Logout', title="Register")
+    return render_template('register.html', logInfo = 'Register', title="Register")
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():

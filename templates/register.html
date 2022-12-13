@@ -5,15 +5,16 @@
 
 <div class="registration-cssave">
     <form>
-        <h3 class="text-center">Sign In</h3>
-         <div>Not registered? <a href="/register">Register</a></div><br>
+        <h3 class="text-center">Sign Up</h3>
         {{ deta }}
         {{ role }}
+        <p><input type="radio" name="role" value="Student" checked>Student </p>
+        <p><input type="radio" name="role" value="Professor">Professor</p>
         <div class="form-group">
             <input class="form-control item" type="text" name="username" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Login" required>
         </div><br>
         <div class="form-group">
-            <input class="form-control item" type="text" name="email" id="email" placeholder="Email" required>
+            <input class="form-control item" type="text" name="email" id="mail" placeholder="Email" required>
         </div><br>
         <div class="form-group">
             <input class="form-control item" type="password" name="password" minlength="6" id="password" placeholder="Password" required>
