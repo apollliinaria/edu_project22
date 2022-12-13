@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+   <!-- <link rel="stylesheet" href="static/style_login.css"> -->
+</head>
+<body>
+<header></header>
+    <div>Login page: <a href="/login">Home</a></div><br>
+    <div>Task page: <a href="/task1_page">Task 1</a></div><br>
+    <div>Profile: <a href="/person">Profile</a></div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</body>
+</html>

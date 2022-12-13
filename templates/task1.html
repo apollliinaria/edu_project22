@@ -1,0 +1,36 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="basic">
+        <h3>Задание 1</h3>
+        <p>Задача №1:
+Саша решил посчитать сколько у него яблок в двух рауках. Помогите ему сделать это, написав программу на одном из предложенных языков.
+На вход подаётся два числа: число яблок в правой и левой руках соответственно.
+Входные данные: два целых числа
+Выходные данные: одно целое число - количество яблок.
+Примечание: используйте ввод и вывод с клавиатуры</p>
+    </div>
+    <div calss="main_field">
+        <p>Choose language:</p>
+        <form action="/" id="send_code" method="post">
+            {% for a in langs %}<p>
+                    {{ a['name'] }}
+                    <input type="radio" name="language" value={{ a['id'] }}>
+            {% endfor %}</p>
+           <textarea id="Code" name="qwerty" rows="30" cols="50" style="resize:none" required placeholder="//Enter your code here.">{{Code}}</textarea>
+            <textarea id="rets" name="rets" rows="30" cols="50" style="resize:none" placeholder="//Your output here.">{{rets}}</textarea><br>
+            <input type="text" name="in" placeholder="cin">
+        <label for="input">Enter your input:</label><br>
+		<textarea id="input" name="input" rows="5" cols="50" style="resize:none" placeholder="//Your Input here.">{{input}}</textarea>
+		<input type="checkbox" name="check" id="GFG"
+                    value="1" {{check}}>Enable input<br>
+            <input type="submit" class="butt" id="butt" value="Send for check">
+        </form>
+    </div>
+    <div class="response">
+        {{ rets }}
+    </div>
+
+{% endblock %}
