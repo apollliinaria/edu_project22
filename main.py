@@ -18,13 +18,32 @@ heads = {
 langes = [{'id': 52, 'name': 'C++ (GCC 7.4.0)'}, {'id': 54, 'name': 'C++ (GCC 9.2.0)'}, {'id': 62, 'name': 'Java (OpenJDK 13.0.1)'}, {'id': 71, 'name': 'Python (3.8.1)'}]
 app.secret_key = '1806363f0fmshf3926631702e101p1eda9ajsn5e10975d9be7'
 
-@app.route('/login', methods = ['GET', 'POST'])
+@app.route('/login', methods =['GET', 'POST'])
 def login():
-    return render_template("login.html", title = "Login")
+    #после отправки формы
+    if request.method == 'POST':
+        #если не войдено
+        if 'username' not in session:
+            username = request.form['username']
+            cursor.execute("SELECT * FROM users_table_1 WHERE username=?", (username,))
+            #если это имя есть в таблице пользователей
+            if cursor.fetchone():
+                session['username'] = username
+                cursor.execute("SELECT role FROM users_table_1 WHERE username=?", (session['username'],))
+                session['role'] = cursor.fetchone()
+                return render_template('login.html', deta = 'Hello, ' + request.form['username'], role = session['role'], logInfo = 'Logout', title="Login")
+            else:
+                return render_template('login.html', deta = 'You are not registered', title="Login")
+        else:
+            return render_template('login.html', deta = 'You are already in as ' + session['username'], logInfo = 'Logout', title="Login")
+    else:
+        return render_template('login.html', title="Login")
+
+
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        myCode = request.form.get('code_area')
+        myCode = request.form.get('qwerty')
         mC = myCode.encode("UTF-8")
         Code = base64.b64encode(mC)
         Cd = Code.decode("UTF-8")

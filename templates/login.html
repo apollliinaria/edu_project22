@@ -6,11 +6,18 @@
 <div class="registration-cssave">
     <form>
         <h3 class="text-center">Sign In</h3>
+        {{ deta }}
+        {{ role }}
+        <p><input type="radio" name="role" value="Student" checked>Student </p>
+        <p><input type="radio" name="role" value="Professor">Professor</p>
         <div class="form-group">
             <input class="form-control item" type="text" name="username" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Login" required>
         </div>
         <div class="form-group">
-            <input class="form-control item" type="password" name="Пароль" minlength="6" id="password" placeholder="Password" required>
+            <input class="form-control item" type="text" name="mail" id="mail" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control item" type="password" name="password" minlength="6" id="password" placeholder="Password" required>
         </div>
         <div class="form-group">
             <button class="btn btn-primary btn-block create-account" type="submit">Enter</button>

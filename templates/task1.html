@@ -21,16 +21,12 @@
             {% endfor %}</p>
            <textarea id="Code" name="qwerty" rows="30" cols="50" style="resize:none" required placeholder="//Enter your code here.">{{Code}}</textarea>
             <textarea id="rets" name="rets" rows="30" cols="50" style="resize:none" placeholder="//Your output here.">{{rets}}</textarea><br>
-            <input type="text" name="in" placeholder="cin">
         <label for="input">Enter your input:</label><br>
-		<textarea id="input" name="input" rows="5" cols="50" style="resize:none" placeholder="//Your Input here.">{{input}}</textarea>
+		<textarea id="input" name="in" rows="5" cols="50" style="resize:none" placeholder="//Your Input here.">{{input}}</textarea>
 		<input type="checkbox" name="check" id="GFG"
                     value="1" {{check}}>Enable input<br>
             <input type="submit" class="butt" id="butt" value="Send for check">
         </form>
-    </div>
-    <div class="response">
-        {{ rets }}
     </div>
 
 {% endblock %}
